@@ -1,0 +1,20 @@
+name: Build VST3
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DMS_COPY=OFF -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+      - name: Build
+        run: cmake --build build --config Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MaxStutter-${{ matrix.os }}
+          path: build/MaxStutter_artefacts
