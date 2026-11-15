@@ -37,9 +37,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout MaxStutterAudioProcessor::cr
         StringArray { "1/2", "1/4", "1/8", "1/16", "1/32", "1/4 Triole", "1/8 Triole", "1/16 Triole" }, 3));
     p.push_back (std::make_unique<AudioParameterFloat>  (ParameterID { "gate", 1 }, "Gate %", NormalisableRange<float> (20.f, 100.f, 1.f), 100.f));
     p.push_back (std::make_unique<AudioParameterFloat>  (ParameterID { "decay", 1 }, "Decay %", NormalisableRange<float> (0.f, 90.f, 1.f), 0.f));
-    p.push_back (std::make_unique<AudioParameterFloat>  (ParameterID { "pitch", 1 }, "Tonhöhe/Wiederholung (Halbtöne)", NormalisableRange<float> (-12.f, 12.f, 0.5f), 0.f));
-    p.push_back (std::make_unique<AudioParameterBool>   (ParameterID { "pingpong", 1 }, "Ping-Pong rückwärts", false));
-    p.push_back (std::make_unique<AudioParameterChoice> (ParameterID { "len", 1 }, "Länge Tape-Stop/Backspin",
+    p.push_back (std::make_unique<AudioParameterFloat>  (ParameterID { "pitch", 1 }, "Tonhoehe/Wiederholung (Halbtoene)", NormalisableRange<float> (-12.f, 12.f, 0.5f), 0.f));
+    p.push_back (std::make_unique<AudioParameterBool>   (ParameterID { "pingpong", 1 }, "Ping-Pong rueckwaerts", false));
+    p.push_back (std::make_unique<AudioParameterChoice> (ParameterID { "len", 1 }, "Laenge Tape-Stop/Backspin",
         StringArray { "1/4 Takt", "1/2 Takt", "1 Takt", "2 Takte" }, 2));
     p.push_back (std::make_unique<AudioParameterBool>   (ParameterID { "hostbpm", 1 }, "BPM vom Host", true));
     p.push_back (std::make_unique<AudioParameterFloat>  (ParameterID { "bpm", 1 }, "BPM manuell", NormalisableRange<float> (40.f, 240.f, 0.1f), 128.f));
